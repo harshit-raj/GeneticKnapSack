@@ -50,8 +50,15 @@ public class Population {
 	
 
 	public void setBestGene() {
-		this.bestGene = bestGene;
-		
+		double worldRecord = 0;
+		int index = 0;
+		for(int i = 0; i < popSize; i++) {
+			if(gene.get(i).fitness > worldRecord) {
+				index = i;
+				worldRecord = gene.get(i).fitness;
+			}
+		}
+		this.bestGene = gene.get(index);
 	}
 	
 	
