@@ -1,9 +1,11 @@
 package com.genetic.knapsack;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class GeneBreederImpl implements GeneBreeder{
-	PriorityQueue<Gene> GenePQ;
+	PriorityQueue<Gene> genePQ;
 			
 		public GeneBreederImpl(Population population) {
 			cull(population);
@@ -25,7 +27,8 @@ public class GeneBreederImpl implements GeneBreeder{
 		}
 
 		public void cull(Population population) {
-			GenePQ = new PriorityQueue<Gene>(population.getPopSize()/2);
+			genePQ = new PriorityQueue<Gene>(population.getPopSize()/2, Collections.reverseOrder());
+			genePQ.addAll(population.getGene());
 			
 		}
 	
