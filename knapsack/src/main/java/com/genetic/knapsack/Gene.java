@@ -1,12 +1,12 @@
 package com.genetic.knapsack;
 
 import java.util.List;
-import java.util.Random;
 
 public class Gene implements Comparable<Gene>{
 	int[] geneAr;
 	int length = ItemList.size;
-	double fitness = 0;
+	double fitness = -1;
+	double prob = -1;
 	static double knapsackWeight = 10000;
 	//static Random random = new Random();
 	public Gene() {
@@ -45,6 +45,9 @@ public class Gene implements Comparable<Gene>{
 		this.length = length;
 	}
 	public double getFitness() {
+		if(fitness == -1) {
+			setFitness();
+		}
 		return fitness;
 	}
 	public void setFitness() {
@@ -88,6 +91,29 @@ public class Gene implements Comparable<Gene>{
 		
 		return res;
 	}
+
+
+
+
+	public double getProb() {
+		return prob;
+	}
+
+
+
+
+	public void setProb(double prob) {
+		this.prob = prob;
+	}
+	
+	
+
+
+
+
+	
+	
+	
 
 
 

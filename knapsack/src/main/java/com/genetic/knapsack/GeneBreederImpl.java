@@ -1,6 +1,7 @@
 package com.genetic.knapsack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.Random;
 
 public class GeneBreederImpl implements GeneBreeder{
 	PriorityQueue<Gene> genePQ;
-	List<Gene> childList = new ArrayList<>();
+	List<Gene> childList = new ArrayList<Gene>();
+	int numberofChild = 4;
+	
 			
 		public GeneBreederImpl(Population population) {
 			cull(population);
@@ -50,9 +53,14 @@ public class GeneBreederImpl implements GeneBreeder{
 			
 		}
 
-		@Override
 		public void breed() {
-			for(int i = 0; i < 4; i++) {
+			Gene[] ga = (Gene[]) genePQ.toArray();
+			Arrays.sort(ga, Collections.reverseOrder());
+			
+			
+			
+			
+			for(int i = 0; i < numberofChild; i++) {
 				Gene child = generate();
 				childList.add(child);
 			}
@@ -66,7 +74,9 @@ public class GeneBreederImpl implements GeneBreeder{
 			//child 4 (2,1)
 		}
 		
-		public Gene generate() {
+		//Gene 
+		
+		private Gene generate() {
 			Gene parentA = genePQ.poll();
 			Gene parentB = genePQ.poll();
 			Gene child = crossover(parentA, parentB);
