@@ -61,6 +61,13 @@ public class Population {
 		this.bestGene = gene.get(index);
 	}
 	
-	
+	public String toString() {
+		String res = "";
+		for(Gene g: gene) {
+			res += g.toString();
+			res += " ";
+		}
+		return res;
+	}
 
 }

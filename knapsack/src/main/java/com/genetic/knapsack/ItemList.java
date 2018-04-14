@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ItemList {
 	private List<Item> itemList= new ArrayList<Item>();
-	static int size = 100;
+	static int size = 10;
 	static Random random = new Random(0);
 	static ItemList instance = null;
 	private double totalVal = 0;
@@ -17,6 +17,7 @@ public class ItemList {
 			item.setValue(1+(100-1)*random.nextDouble());
 			item.setWeight(10+(1000-10)*random.nextDouble());
 			this.totalVal+= item.getValue();
+			itemList.add(item);
 		}
 	}
 	
