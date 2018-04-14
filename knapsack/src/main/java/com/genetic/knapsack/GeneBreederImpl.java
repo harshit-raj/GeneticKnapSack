@@ -1,28 +1,46 @@
 package com.genetic.knapsack;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 public class GeneBreederImpl implements GeneBreeder{
 	PriorityQueue<Gene> genePQ;
+	List<Gene> childList = new ArrayList<>();
 			
 		public GeneBreederImpl(Population population) {
 			cull(population);
 		}
 
 		public Gene crossover(Gene a, Gene b) {
-			// TODO Auto-generated method stub
-			return null;
+			// A new child
+			Gene child = new Gene();
+			int midpoint = (int) (Math.random()*genePQ.size());
+			
+			//Half from one, half from another
+			for(int i = 0; i < genePQ.size(); i++) {
+				if(i > midpoint) {
+					child.geneAr[i] = a.geneAr[i];
+				}else {
+					child.geneAr[i] = b.geneAr[i];
+				}
+			}
+			return child;
 		}
 
-		public void mutate(Gene gene) {
-			// TODO Auto-generated method stub
-			
+		public void mutate(double mutationRate, Gene gene) {
+			for(int i = 0; i < gene.geneAr.length; i++) {
+				if(Math.random() < mutationRate) {
+					gene.geneAr[i] = Math.random()>0.5?0:1;
+				}
+			}
 		}
 
 		public Gene pickStrategy(Population population) {
-			// TODO Auto-generated method stub
+			
 			return null;
 		}
 
@@ -31,7 +49,30 @@ public class GeneBreederImpl implements GeneBreeder{
 			genePQ.addAll(population.getGene());
 			
 		}
-	
+
+		@Override
+		public void breed() {
+			for(int i = 0; i < 4; i++) {
+				Gene child = generate();
+				childList.add(child);
+			}
+			//pick parent 1
+			//pick parent 2
+			//child 1 (1,2)
+			//mutate
+			//save
+			//child 2 (2,1)
+			//child 3 (1,2)
+			//child 4 (2,1)
+		}
+		
+		public Gene generate() {
+			Gene parentA = genePQ.poll();
+			Gene parentB = genePQ.poll();
+			Gene child = crossover(parentA, parentB);
+			mutate(0.01, child);
+			return child;
+		}
 	
 	
 
