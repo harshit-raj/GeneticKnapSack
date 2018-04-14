@@ -3,7 +3,7 @@ package com.genetic.knapsack;
 import java.util.List;
 import java.util.Random;
 
-public class Gene {
+public class Gene implements Comparable<Gene>{
 	int[] geneAr;
 	int length = ItemList.size;
 	double fitness = 0;
@@ -15,8 +15,23 @@ public class Gene {
 		for(int i = 0; i<length;i++) {
 			geneAr[i]=(Math.random()>0.5?0:1);
 		}
-		
+		setFitness();	
+
 	}
+
+
+
+
+	public Gene(Gene g) {
+		super();
+		this.geneAr = g.geneAr;
+		this.length = g.length;
+		this.fitness = g.fitness;
+	}
+
+
+
+
 	public int[] getGeneAr() {
 		return geneAr;
 	}
@@ -35,11 +50,11 @@ public class Gene {
 	public void setFitness() {
 		List<Item> items = ItemList.getInstance().getItemList();
 		double weight = 0;
-		
+
 		for(int i = 0; i < length; i++) {
-			
+
 			if(geneAr[i] == 1) {
-				
+
 				fitness += items.get(i).getValue();
 				weight += items.get(i).getWeight();
 			}
@@ -49,10 +64,34 @@ public class Gene {
 		fitness *= 100;
 		this.fitness = Math.pow(fitness, 2);
 	}
-	
-	
-	
-	
 
+
+
+
+	public int compareTo(Gene gene) {
+		if(this.fitness==gene.fitness)
+			return 0;
+		else if(this.fitness>gene.fitness)
+			return 1;
+		else
+			return -1;
+	}
 	
+	
+	public String toString() {
+		String res = "[";
+		for(int i : geneAr) {
+			res += i;
+			res += " ";
+		}
+		res+= "]";
+		
+		return res;
+	}
+
+
+
+
+
+
 }
