@@ -11,6 +11,7 @@ public class Item {
 	private double weight;
 	private double value;
 	private String name;
+	//private double totalVal;
 
 	/**
 	 * 
@@ -56,7 +57,21 @@ public class Item {
 	public String toString() {
 		return "Value" + this.value + "Weight" + this.weight;
 	}
-	
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
 	
 
 }

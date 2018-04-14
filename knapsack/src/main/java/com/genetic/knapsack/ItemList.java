@@ -5,16 +5,18 @@ import java.util.List;
 import java.util.Random;
 
 public class ItemList {
-	List<Item> itemList= new ArrayList<Item>();
+	private List<Item> itemList= new ArrayList<Item>();
 	static int size = 100;
 	static Random random = new Random(0);
 	static ItemList instance = null;
+	private double totalVal = 0;
 
 	private ItemList() {
 		for(int i = 0; i < size;i++) {
 			Item item = new Item();
 			item.setValue(1+(100-1)*random.nextDouble());
 			item.setWeight(10+(1000-10)*random.nextDouble());
+			this.totalVal+= item.getValue();
 		}
 	}
 	
@@ -51,6 +53,16 @@ public class ItemList {
 		}
 		return st;
 	}
+
+	public double getTotalVal() {
+		return totalVal;
+	}
+
+	public void setTotalVal(double totalVal) {
+		this.totalVal = totalVal;
+	}
+	
+	
 	
 	
 	
