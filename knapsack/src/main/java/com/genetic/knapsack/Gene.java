@@ -1,7 +1,6 @@
 package com.genetic.knapsack;
 
 import java.util.List;
-import java.util.Random;
 
 public class Gene implements Comparable<Gene>{
 	int[] geneAr;
