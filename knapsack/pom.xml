@@ -14,6 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -29,5 +30,13 @@
 			<version>1.2.17</version>
 		</dependency>
 
-	</dependencies>
+
+  <!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+	<dependency>
+	    <groupId>commons-configuration</groupId>
+	    <artifactId>commons-configuration</artifactId>
+	    <version>1.6</version>
+	</dependency>
+    
+  </dependencies>
 </project>
