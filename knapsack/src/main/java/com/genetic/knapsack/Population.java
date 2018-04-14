@@ -1,0 +1,59 @@
+package com.genetic.knapsack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Population {
+	private List<Gene> gene = new ArrayList<Gene>();
+	static int popSize = 100;
+	private int genId;
+	private Gene bestGene = null;
+
+	public Population() {
+		 for(int i = 0; i< popSize;i++) {
+			 gene.add(new Gene());
+		 }
+		 
+	}
+
+	public List<Gene> getGene() {
+		return gene;
+	}
+
+	public void setGene(List<Gene> gene) {
+		this.gene = gene;
+	}
+
+	public static int getPopSize() {
+		return popSize;
+	}
+
+	public static void setPopSize(int popSize) {
+		Population.popSize = popSize;
+	}
+
+	public int getGenId() {
+		return genId;
+	}
+
+	public void setGenId(int genId) {
+		this.genId = genId;
+	}
+
+	public Gene getBestGene() {
+		if (this.bestGene == null) {
+			setBestGene();
+		}
+		return bestGene;
+	}
+	
+	
+
+	public void setBestGene() {
+		this.bestGene = bestGene;
+		
+	}
+	
+	
+
+}

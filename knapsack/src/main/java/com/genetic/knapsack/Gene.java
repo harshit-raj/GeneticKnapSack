@@ -17,6 +17,20 @@ public class Gene {
 		}
 		
 	}
+	
+	
+	
+	
+	public Gene(Gene g) {
+		super();
+		this.geneAr = g.geneAr;
+		this.length = g.length;
+		this.fitness = g.fitness;
+	}
+
+
+
+
 	public int[] getGeneAr() {
 		return geneAr;
 	}
