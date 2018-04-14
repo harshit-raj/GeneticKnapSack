@@ -10,7 +10,7 @@ public class ItemList {
 	static Random random = new Random(0);
 	static ItemList instance = null;
 	private double totalVal = 0;
-
+	
 	private ItemList() {
 		for(int i = 0; i < size;i++) {
 			Item item = new Item();
@@ -21,6 +21,8 @@ public class ItemList {
 		}
 	}
 	
+	
+
 	static ItemList getInstance() {
 		if (instance == null) {
 			instance = new ItemList();

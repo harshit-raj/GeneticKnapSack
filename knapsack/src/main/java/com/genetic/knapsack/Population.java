@@ -8,6 +8,7 @@ public class Population {
 	static int popSize = 100;
 	private int genId;
 	private Gene bestGene = null;
+	private double totalFitness = -1;
 
 	public Population() {
 		 for(int i = 0; i< popSize;i++) {
@@ -69,5 +70,22 @@ public class Population {
 		}
 		return res;
 	}
+
+	public double getTotalFitness() {
+		if(this.totalFitness == -1) {
+			setTotalFitness();
+		}
+		return totalFitness;
+	}
+
+	public void setTotalFitness() {
+		int fit = 0;
+		for(Gene g: gene) {
+			fit += g.getFitness();
+		}
+		this.totalFitness = fit;
+	}
+	
+	
 
 }
