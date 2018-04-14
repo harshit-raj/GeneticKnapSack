@@ -2,7 +2,11 @@ package com.genetic.knapsack;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class Gene implements Comparable<Gene>{
+	static Logger log = Logger.getLogger(Gene.class.getName());
+
 	int[] geneAr;
 	int length = ItemList.size;
 	double fitness = -1;
@@ -51,6 +55,7 @@ public class Gene implements Comparable<Gene>{
 		return fitness;
 	}
 	public void setFitness() {
+	    log.info("setFitness() method.");
 		List<Item> items = ItemList.getInstance().getItemList();
 		double weight = 0;
 
@@ -79,8 +84,8 @@ public class Gene implements Comparable<Gene>{
 		else
 			return -1;
 	}
-	
-	
+
+
 	public String toString() {
 		String res = "[";
 		for(int i : geneAr) {
@@ -88,7 +93,7 @@ public class Gene implements Comparable<Gene>{
 			res += " ";
 		}
 		res+= "]";
-		
+
 		return res;
 	}
 
