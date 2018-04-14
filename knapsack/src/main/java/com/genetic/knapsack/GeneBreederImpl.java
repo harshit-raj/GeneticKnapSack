@@ -12,10 +12,12 @@ public class GeneBreederImpl implements GeneBreeder{
 	PriorityQueue<Gene> genePQ;
 	List<Gene> childList = new ArrayList<Gene>();
 	int numberofChild = 4;
+	Population population = new Population();
+	double mutationRate = 0.01;	
 	
-			
 		public GeneBreederImpl(Population population) {
 			cull(population);
+			this.population = population;
 		}
 
 		public Gene crossover(Gene a, Gene b) {
@@ -41,10 +43,26 @@ public class GeneBreederImpl implements GeneBreeder{
 				}
 			}
 		}
+		
+		private void setProb() {
+			double sum = 0;
+			for(int i = 0; i < population.getGene().size(); i++) {
+				sum += population.getGene().get(i).fitness;
+			}
+			for(int i = 0; i < population.getGene().size(); i++) {
+				population.getGene().get(i).setProb(population.getGene().get(i).fitness/sum);
+			}
+		}
 
 		public Gene pickStrategy(Population population) {
-			
-			return null;
+			int index = 0;
+			double r = Math.random();
+			while(r > 0) {
+				r = r - population.getGene().get(index).getProb();
+				index++;
+			}
+			index--;
+			return population.getGene().get(index);
 		}
 
 		public void cull(Population population) {
@@ -55,11 +73,9 @@ public class GeneBreederImpl implements GeneBreeder{
 
 		public void breed() {
 			Gene[] ga = (Gene[]) genePQ.toArray();
-			Arrays.sort(ga, Collections.reverseOrder());
+			Arrays.sort(ga, Collections.reverseOrder());	
 			
-			
-			
-			
+			setProb();
 			for(int i = 0; i < numberofChild; i++) {
 				Gene child = generate();
 				childList.add(child);
@@ -77,10 +93,10 @@ public class GeneBreederImpl implements GeneBreeder{
 		//Gene 
 		
 		private Gene generate() {
-			Gene parentA = genePQ.poll();
-			Gene parentB = genePQ.poll();
+			Gene parentA = pickStrategy(population);
+			Gene parentB = pickStrategy(population);
 			Gene child = crossover(parentA, parentB);
-			mutate(0.01, child);
+			mutate(mutationRate, child);
 			return child;
 		}
 	
