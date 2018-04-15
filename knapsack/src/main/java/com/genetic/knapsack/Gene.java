@@ -10,16 +10,14 @@ public class Gene implements Comparable<Gene>{
 	int[] geneAr;
 	int length = ItemList.size;
 	double fitness = -1;
-	double prob = -1;
-	static double knapsackWeight = 10000;
+	static double knapsackWeight = 50000;
 	//static Random random = new Random();
 	public Gene() {
 		super();
 		geneAr = new int[length];
 		for(int i = 0; i<length;i++) {
 			geneAr[i]=(Math.random()>0.5?0:1);
-		}
-		setFitness();		
+		}		
 	}
 
 
@@ -48,28 +46,29 @@ public class Gene implements Comparable<Gene>{
 		this.length = length;
 	}
 	public double getFitness() {
-		if(fitness == -1) {
-			setFitness();
-		}
+//		if(fitness == -1) {
+//			setFitness();
+//		}
 		return fitness;
 	}
 	public void setFitness() {
-	    log.info("setFitness() method.");
+	    log.info("setFitness() method." + "fitness is " + fitness);
 		List<Item> items = ItemList.getInstance().getItemList();
 		double weight = 0;
-
-		for(int i = 0; i < length; i++) {
-
+		for(int i = 0; i < items.size(); i++) {
 			if(geneAr[i] == 1) {
-
 				fitness += items.get(i).getValue();
+//				System.out.println("item " + i + ", weight: " + items.get(i).getWeight() + ", value: " + items.get(i).getValue());
 				weight += items.get(i).getWeight();
 			}
 		}
-		if(weight > knapsackWeight) this.fitness = 0;
-		fitness /= ItemList.getInstance().getTotalVal();
-		fitness *= 100;
-		this.fitness = Math.pow(fitness, 2);
+		if(weight > knapsackWeight) {
+			this.fitness = 0;
+		}else {
+			this.fitness = Math.pow(fitness, 2);
+		}
+//		System.out.println("weight is " + weight);
+//		System.out.println("fitness is " + fitness);
 	}
 
 
@@ -89,39 +88,12 @@ public class Gene implements Comparable<Gene>{
 		String res = "[";
 		for(int i : geneAr) {
 			res += i;
-			res += " ";
 		}
-		res+= "]";
+		res+= "] ";
+		res+= getFitness();
+		res+=" | ";
 
 		return res;
 	}
-
-
-
-
-	public double getProb() {
-		return prob;
-	}
-
-
-
-
-	public void setProb(double prob) {
-		this.prob = prob;
-	}
-	
-	
-
-
-
-
-	
-	
-	
-
-
-
-
-
 
 }

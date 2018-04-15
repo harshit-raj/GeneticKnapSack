@@ -12,6 +12,7 @@ public class GeneBreederImpl implements GeneBreeder{
 	PriorityQueue<Gene> genePQ;
 	Population population = new Population();
 	double mutationRate = 0.01;	
+	int childNum = 4;
 	Generation generation = Generation.getInstance();
 	
 	public GeneBreederImpl(Population population) {
@@ -45,23 +46,13 @@ public class GeneBreederImpl implements GeneBreeder{
 			}
 		}
 	}
-	
-	private void setProb(Population population) {
-		double sum = 0;
-		for(int i = 0; i < population.getGene().size(); i++) {
-			sum += population.getGene().get(i).fitness;
-		}		
-		for(int i = 0; i < population.getGene().size(); i++) {
-			double prob = population.getGene().get(i).fitness/sum;
-			population.getGene().get(i).setProb(prob);
-		}
-	}
 
 	public Gene pickStrategy(Population population) {
 		int index = 0;
-		double r = Math.random();
+		Random random = new Random();
+		double r = random.nextDouble()*population.getBestGene().getFitness();
 		while(r > 0) {
-			r = r - population.getGene().get(index).getProb();
+			r = r - population.getGene().get(index).getFitness();
 			index++;
 		}
 		index--;
@@ -77,18 +68,29 @@ public class GeneBreederImpl implements GeneBreeder{
 
 	public Population breed(Population population) {
 //		System.out.println("------------------------------------------------------");
-		Population newPop = new Population();
+		
+//		Population newPop = new Population();
 		List<Gene> childList = new ArrayList<Gene>();
-		setProb(population);
+//		setProb(population);
+//		for(int i = 0; i < genePQ.size(); i++) {
+//			for(int j=0; j < childNum; j++) {
+//				Gene parentA = pickStrategy(population);
+//				Gene parentB = pickStrategy(population);
+//				Gene child = crossover(parentA, parentB);
+//				mutate(mutationRate, child);
+//				childList.add(child);
+//			}			
+////			System.out.println("Child #" + i + " fitness: " + child.fitness);
+//		}
 		for(int i = 0; i < Population.getPopSize(); i++) {
 			Gene parentA = pickStrategy(population);
 			Gene parentB = pickStrategy(population);
 			Gene child = crossover(parentA, parentB);
 			mutate(mutationRate, child);
-			childList.add(child);
+			childList.add(child);			
 //			System.out.println("Child #" + i + " fitness: " + child.fitness);
-		}		
-		newPop.setGene(childList);
+		}
+		Population newPop = new Population(childList);
 //		System.out.println("best fitness is: " + newPop.getBestGene().fitness + "========================");
 		return newPop;
 	}

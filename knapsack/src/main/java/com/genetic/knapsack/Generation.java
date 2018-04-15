@@ -12,7 +12,7 @@ public class Generation {
 	}
 	
 	static Generation getInstance() {
-		if (instance == null) {
+		if (instance == null) { 
 			instance = new Generation();
 		}
 		return instance;
@@ -25,6 +25,21 @@ public class Generation {
 
 	public void setPopList(List<Population> popList) {
 		this.popList = popList;
+	}
+
+	@Override
+	public String toString() {
+		String result = "";
+		for(Population population : popList) {
+			//result+=population.toString();
+			result+=population.getGenId();
+			result+=" Average Fitness ";
+			result+=population.getAveFitness();
+			result+=" Best gene ";
+			result+=population.getBestGene().toString();
+			result+="\n";
+		}
+		return result;
 	}
 	
 	
