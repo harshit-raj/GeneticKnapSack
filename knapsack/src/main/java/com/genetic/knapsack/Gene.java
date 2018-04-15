@@ -19,8 +19,7 @@ public class Gene implements Comparable<Gene>{
 		for(int i = 0; i<length;i++) {
 			geneAr[i]=(Math.random()>0.5?0:1);
 		}
-		setFitness();	
-
+		setFitness();		
 	}
 
 

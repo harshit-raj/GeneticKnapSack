@@ -44,7 +44,7 @@ public class ItemList {
 	}
 
 	public void setSize(int size) {
-		this.size = size;
+		ItemList.size = size;
 	}
 	
 	

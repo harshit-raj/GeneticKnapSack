@@ -9,12 +9,12 @@ public class Population {
 	private int genId;
 	private Gene bestGene = null;
 	private double totalFitness = -1;
+	private double aveFitness = -1;
 
 	public Population() {
 		 for(int i = 0; i< popSize;i++) {
 			 gene.add(new Gene());
 		 }
-		 
 	}
 
 	public List<Gene> getGene() {
@@ -84,6 +84,17 @@ public class Population {
 			fit += g.getFitness();
 		}
 		this.totalFitness = fit;
+	}
+
+	public double getAveFitness() {
+		if(this.aveFitness == -1) {
+			setAveFitness();
+		}
+		return aveFitness;
+	}
+
+	public void setAveFitness() {
+		this.aveFitness = getTotalFitness()/popSize;
 	}
 	
 	
