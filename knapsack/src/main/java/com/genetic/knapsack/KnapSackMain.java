@@ -24,9 +24,10 @@ public class KnapSackMain {
 	
 	void draw() {
 		GeneBreeder geneBreeder = new GeneBreederImpl(population);
-		for(int i = 1; i < 100; i++) {
-			Population lastPop = generation.getPopList().get(i-1);
-			generation.getPopList().add(geneBreeder.breed(lastPop));
+		for(int i = 1; i < 400; i++) {
+			Population currentPop = geneBreeder.breed(generation.getPopList().get(i-1));
+			currentPop.setGenId(i);
+			generation.getPopList().add(currentPop);
 		}
 	}
 	
@@ -36,8 +37,10 @@ public class KnapSackMain {
 		knapSackMain.draw();
 		for(Population pop:generation.getPopList()) {
 			System.out.print("best gene in generation " +  pop.getGenId() + " is " + pop.getBestGene() + " with fitness: " + pop.getBestGene().fitness);
-			System.out.println(" and ave fitness: " + pop.getAveFitness());
+			System.out.println(" and ave fitness: " + pop.getTotalFitness());
 		}
+		System.out.println(generation.getPopList().size());
+		
 		
 	}
 
