@@ -46,24 +46,13 @@ public class GeneBreederImpl implements GeneBreeder{
 			}
 		}
 	}
-	
-	private void setProb(Population population) {
-		double sum = 0;
-		for(int i = 0; i < population.getGene().size(); i++) {
-			sum += population.getGene().get(i).fitness;
-		}		
-		for(int i = 0; i < population.getGene().size(); i++) {
-			double prob = population.getGene().get(i).fitness/sum;
-			population.getGene().get(i).setProb(prob);
-			System.out.println("Prob is: " + prob + "-----------------");
-		}
-	}
 
 	public Gene pickStrategy(Population population) {
 		int index = 0;
-		double r = Math.random();
+		Random random = new Random();
+		double r = random.nextDouble()*population.getBestGene().getFitness();
 		while(r > 0) {
-			r = r - population.getGene().get(index).getProb();
+			r = r - population.getGene().get(index).getFitness();
 			index++;
 		}
 		index--;
@@ -82,7 +71,7 @@ public class GeneBreederImpl implements GeneBreeder{
 		
 //		Population newPop = new Population();
 		List<Gene> childList = new ArrayList<Gene>();
-		setProb(population);
+//		setProb(population);
 //		for(int i = 0; i < genePQ.size(); i++) {
 //			for(int j=0; j < childNum; j++) {
 //				Gene parentA = pickStrategy(population);
