@@ -1,9 +1,9 @@
 package filehandler;
 
 public class CSVData {
-	private int m;
-	private int birthdayCount;
-	private int couponCount;
+	private int generationNum;
+	private double bestGeneFitness;
+	private double aveFitness;
 	
 	
 	
@@ -14,11 +14,11 @@ public class CSVData {
 	
 	
 	
-	public CSVData(int m, int birthdayCount, int couponCount) {
+	public CSVData(int generationNum, double bestGeneFitness, double aveFitness, int knapSackWeightCapacity) {
 		super();
-		this.m = m;
-		this.birthdayCount = birthdayCount;
-		this.couponCount = couponCount;
+		this.generationNum = generationNum;
+		this.bestGeneFitness = aveFitness;
+		this.aveFitness = aveFitness;
 	}
 
 	
