@@ -19,12 +19,15 @@ public class KnapSackMain {
 		population = new Population();
 		generation = Generation.getInstance();
 		population.setGenId(0);
-		generation.getPopList().add(population);
+		generation.getPopList().add(0,population);
 	}
 	
 	void draw() {
 		GeneBreeder geneBreeder = new GeneBreederImpl(population);
-		geneBreeder.breed(population,100);		
+		for(int i = 1; i < 100; i++) {
+			Population lastPop = generation.getPopList().get(i-1);
+			generation.getPopList().add(geneBreeder.breed(lastPop));
+		}
 	}
 	
 	public static void main(String[] args) {

@@ -75,7 +75,7 @@ public class GeneBreederImpl implements GeneBreeder{
 		
 	}
 
-	public void breed(Population population, int generationNum) {
+	public Population breed(Population population) {
 //		System.out.println("------------------------------------------------------");
 		Population newPop = new Population();
 		List<Gene> childList = new ArrayList<Gene>();
@@ -92,11 +92,7 @@ public class GeneBreederImpl implements GeneBreeder{
 		newPop.setGene(childList);
 		newPop.setGenId(population.getGenId()+1);
 //		System.out.println("best fitness is: " + newPop.getBestGene().fitness + "========================");
-		if(population.getGenId() > generationNum-2) {
-			return;
-		}else {					
-			breed(newPop, generationNum);	
-		}	
+		return newPop;
 	}
 	
 	//Gene 
