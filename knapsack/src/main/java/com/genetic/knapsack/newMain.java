@@ -1,5 +1,13 @@
 package com.genetic.knapsack;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import filehandler.CSVData;
+import filehandler.FileHandler;
+import filehandler.FileHandlerImpl_CSV;
+
 public class newMain {
 	Generation generation= Generation.getInstance();
 //	void setUp() {
@@ -68,5 +76,19 @@ public class newMain {
 		newMain.setUp();		
 //		newMain.firstPop();
 		newMain.draw();
+		newMain.writeToFile("KnapSackData.csv");
+		
+		
+	}
+	public void writeToFile(String fName) {
+		FileHandler<CSVData> fh= new FileHandlerImpl_CSV<>();
+		List<CSVData> writeData = new ArrayList<CSVData>();
+		for(Population population: Generation.getInstance().popList) {
+			writeData.add(new CSVData(population, ItemList.getInstance()));
+		}
+		fh.writecsv(writeData.get(0).colName(), fName, writeData);
+		
+		
+		
 	}
 }
