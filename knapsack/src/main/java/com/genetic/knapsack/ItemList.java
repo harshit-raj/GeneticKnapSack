@@ -15,7 +15,7 @@ public class ItemList {
 		for(int i = 0; i < size;i++) {
 			Item item = new Item();
 			item.setValue(1+(100-1)*random.nextDouble());
-			item.setWeight(10+(1000-10)*random.nextDouble());
+			item.setWeight(10+(500-10)*random.nextDouble());
 			this.totalVal+= item.getValue();
 			itemList.add(item);
 		}
