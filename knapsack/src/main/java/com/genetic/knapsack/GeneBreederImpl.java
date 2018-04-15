@@ -88,9 +88,7 @@ public class GeneBreederImpl implements GeneBreeder{
 			childList.add(child);
 //			System.out.println("Child #" + i + " fitness: " + child.fitness);
 		}		
-		generation.getPopList().add(newPop);
 		newPop.setGene(childList);
-		newPop.setGenId(population.getGenId()+1);
 //		System.out.println("best fitness is: " + newPop.getBestGene().fitness + "========================");
 		return newPop;
 	}
