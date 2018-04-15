@@ -15,7 +15,9 @@ public class Population {
 
 	public Population() {
 		for(int i = 0; i< popSize;i++) {
-			this.gene.add(new Gene());
+			Gene newGene = new Gene();
+			newGene.setFitness();
+			this.gene.add(newGene);
 		}
 		setTotalFitness();
 		setAveFitness();
@@ -56,9 +58,9 @@ public class Population {
 	}
 
 	public Gene getBestGene() {
-		if (this.bestGene == null) {
-			setBestGene();
-		}
+//		if (this.bestGene == null) {
+//			setBestGene();
+//		}
 		return bestGene;
 	}
 
@@ -88,9 +90,9 @@ public class Population {
 	}
 
 	public double getTotalFitness() {
-		if(this.totalFitness == -1) {
-			setTotalFitness();
-		}
+//		if(this.totalFitness == -1) {
+//			setTotalFitness();
+//		}
 		return totalFitness;
 	}
 
@@ -103,9 +105,9 @@ public class Population {
 	}
 
 	public double getAveFitness() {
-		if(this.aveFitness == -1) {
-			setAveFitness();
-		}
+//		if(this.aveFitness == -1) {
+//			setAveFitness();
+//		}
 		return aveFitness;
 	}
 
