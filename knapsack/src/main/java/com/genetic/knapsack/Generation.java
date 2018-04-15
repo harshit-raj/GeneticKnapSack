@@ -5,13 +5,18 @@ import java.util.List;
 
 public class Generation {
 	List<Population> popList = new ArrayList<Population>();
+	static Generation instance = null;
 
-
-	public Generation() {
-				
-		
+	private Generation() {
+					
 	}
-
+	
+	static Generation getInstance() {
+		if (instance == null) {
+			instance = new Generation();
+		}
+		return instance;
+	}
 
 	public List<Population> getPopList() {
 		return popList;

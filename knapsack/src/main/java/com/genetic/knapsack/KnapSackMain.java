@@ -1,7 +1,9 @@
 package com.genetic.knapsack;
 
 public class KnapSackMain {
-
+	Population population;
+	static Generation generation;
+	
 	public KnapSackMain() {
 		// TODO Auto-generated constructor stub
 		
@@ -11,14 +13,29 @@ public class KnapSackMain {
 		//display best from new generation 
 	}
 	
-	public static void main(String[] args) {
+	void setUp() {
 		ItemList il = ItemList.getInstance();
 		Population.popSize= 10;
-		Population pop = new Population();
-		System.out.println(pop);
-		System.out.print("Fitness ");
-		System.out.println(pop.getGene().get(0).fitness);
-		System.out.println("Done");
+		population = new Population();
+		generation = Generation.getInstance();
+		population.setGenId(0);
+		generation.getPopList().add(population);
+	}
+	
+	void draw() {
+		GeneBreeder geneBreeder = new GeneBreederImpl(population);
+		geneBreeder.breed(population,100);		
+	}
+	
+	public static void main(String[] args) {
+		KnapSackMain knapSackMain = new KnapSackMain();
+		knapSackMain.setUp();
+		knapSackMain.draw();
+		for(Population pop:generation.getPopList()) {
+			System.out.print("best gene in generation " +  pop.getGenId() + " is " + pop.getBestGene() + " with fitness: " + pop.getBestGene().fitness);
+			System.out.println(" and ave fitness: " + pop.getAveFitness());
+		}
+		
 	}
 
 }
