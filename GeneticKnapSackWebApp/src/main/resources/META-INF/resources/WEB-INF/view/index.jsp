@@ -34,6 +34,9 @@
 				<a href = "/runAlgorithm">Default values</a>
 				&nbsp
 				<a href = "/customAlgorithm">Custom Values</a>
+				<br>
+				<a href = "https://drive.google.com/open?id=1Sab-AeEWa1uM82-YvylXcy4Lbaybcwbg" target="_blank">Project Report</a>
+				
 			</div>
 			<div class = "col-2">
 				
