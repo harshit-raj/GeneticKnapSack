@@ -39,6 +39,8 @@ public class MainController {
 		/*for(int i=0; i<generation.getPopList().size();i++)
 		System.out.println(generation.getPopList().get(i).getAveFitness());*/
 		mv.setViewName("result");
+		System.out.println("----------------------------get get get get ");
+		
 		return mv;
 	}
 	
@@ -54,8 +56,27 @@ public class MainController {
 		/*for(int i=0; i<generation.getPopList().size();i++)
 		System.out.println(generation.getPopList().get(i).getAveFitness());*/
 		mv.setViewName("result");
+		System.out.println("----------------------------Post request");
+		
 		return mv;
 	}
+	
+	@RequestMapping(value = "/customAlgorithm", method = RequestMethod.GET)
+	public ModelAndView controlForm() {
+		ModelAndView mv = new ModelAndView();
+		AlgoControls alc = new AlgoControls(5000, 10, 5, 70);
+		mv.addObject("alc", alc);
+		//mv.addObject("itemList", il);
+		/*for(int i=0; i<generation.getPopList().size();i++)
+		System.out.println(generation.getPopList().get(i).getAveFitness());*/
+		mv.setViewName("include");
+		
+		
+		return mv;
+	}
+	
+	
+	
 	
 
 }

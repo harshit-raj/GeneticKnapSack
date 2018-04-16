@@ -56,7 +56,7 @@ public class newMain {
 			Population currentPop = geneBreeder.breed(generation.getPopList().get(i-1));
 			currentPop.setGenId(i);
 			generation.getPopList().add(currentPop);
-			printPop(generation.getPopList().get(i));
+			//printPop(generation.getPopList().get(i));
 		}
 //		System.out.println(generation.toString());
 	}
