@@ -6,34 +6,11 @@ import java.util.List;
 
 import com.GeneAlgo.KnapSack.Entity.AlgoControls;
 
-//import filehandler.CSVData;
-//import filehandler.FileHandler;
-//import filehandler.FileHandlerImpl_CSV;
 
 public class newMain {
 	Generation generation= Generation.getInstance();
 	static int runCount = 100;
-//	void setUp() {
-//		ItemList il = ItemList.getInstance();
-////		Population.popSize= 100;
-//		Population firstPopulation = new Population();
-//		firstPopulation.setGenId(0);
-//		generation.getPopList().add(firstPopulation);
-//		System.out.println(firstPopulation);
-//		GeneBreeder geneBreeder = new GeneBreederImpl2();
-////		GeneBreederImpl3 geneBreeder = new GeneBreederImpl3();		
-//		//Population nextPopulation= geneBreeder.breed(firstPopulation);
-//		for(int i = 1;i <100;i++) {
-//			Population pop = geneBreeder.breed(generation.getPopList().get(i-1));
-//			pop.setGenId(i);
-//			generation.getPopList().add(pop);
-////			System.out.println(generation.getPopList().get(i).getBestGene());
-//			
-//		}
-//		
-////		generation.getPopList().add(geneBreeder.breed(firstPopulation));
-//		System.out.println(generation.toString());
-//	}
+
 	
 	void setUp() {
 		ItemList il = ItemList.getInstance();
@@ -58,7 +35,7 @@ public class newMain {
 			generation.getPopList().add(currentPop);
 			//printPop(generation.getPopList().get(i));
 		}
-//		System.out.println(generation.toString());
+
 	}
 	
 	void itemList() {
@@ -73,23 +50,12 @@ public class newMain {
 	void printPop(Population population) {
 		ItemList il = ItemList.getInstance();
 		for(Gene gene: population.getGene()) {
-//			System.out.println(gene);
 		}
 		System.out.print("Generation " + population.getGenId());
 		System.out.print(" | Best gene: " + population.getBestGene());
 		System.out.print("Average fitness: " + population.getAveFitness());
 		System.out.println(" | Total fitness: " + population.getTotalFitness());
 	}
-//	public static void main(String[] args) {
-//		newMain newMain = new newMain();
-////		newMain.itemList();
-//		newMain.setUp();		
-////		newMain.firstPop();
-//		newMain.draw();
-////		newMain.writeToFile("KnapSackData.csv");
-//		
-//		
-//	}
 	public Generation returnMain() {
 		this.generation.popList.clear();
 		newMain newMain = new newMain();
@@ -97,15 +63,5 @@ public class newMain {
 		newMain.draw();
 		return this.generation;
 	}
-//	public void writeToFile(String fName) {
-//		FileHandler<CSVData> fh= new FileHandlerImpl_CSV<>();
-//		List<CSVData> writeData = new ArrayList<CSVData>();
-//		for(Population population: Generation.getInstance().popList) {
-//			writeData.add(new CSVData(population, ItemList.getInstance()));
-//		}
-//		fh.writecsv(writeData.get(0).colName(), fName, writeData);
-//		
-//		
-//		
-//	}
+
 }

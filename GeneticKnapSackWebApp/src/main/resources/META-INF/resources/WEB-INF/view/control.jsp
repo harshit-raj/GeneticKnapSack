@@ -24,12 +24,15 @@
 	<div class = "container-fluid">
 		<div class = "row">
 			<div class = "col-2">
-				<h4>Hello</h4>
+				
 			</div>
 			<div class = "col-8" style = "text-align: center">
 				<h4>Knapsack Using Genetic Algorithm</h4>
 				<h6>Fudi Liu | Harshit Raj | Meghana Srinivasa</h6>
-				
+				<h5>Run the Algorithm</h5>
+				<a href = "/runAlgorithm">Default values</a>
+				&nbsp
+				<a href = "/customAlgorithm">Custom Values</a>
 				<div class = "row">
 					<form:form modelAttribute="alc" action="/runAlgorithm" method="post" >
 						<table>
@@ -58,7 +61,7 @@
 				
 			</div>
 			<div class = "col-2">
-				<h4>Hello</h4>
+				
 			</div>
 		</div>
 	

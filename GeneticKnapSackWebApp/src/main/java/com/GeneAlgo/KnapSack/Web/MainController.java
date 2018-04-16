@@ -49,7 +49,8 @@ public class MainController {
 		ModelAndView mv = new ModelAndView();
 		ItemList il = ItemList.getInstance();
 		//AlgoControls ac = new AlgoControls(50000, 10, 5,100);
-		Generation generation=service.runAlgorithm();
+		
+		Generation generation=service.customRunAlgorithm(cVal);
 		//mv.addObject("controls",ac);
 		mv.addObject("generation", generation);
 		mv.addObject("itemList", il);
@@ -69,7 +70,7 @@ public class MainController {
 		//mv.addObject("itemList", il);
 		/*for(int i=0; i<generation.getPopList().size();i++)
 		System.out.println(generation.getPopList().get(i).getAveFitness());*/
-		mv.setViewName("include");
+		mv.setViewName("control");
 		
 		
 		return mv;
