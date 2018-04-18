@@ -24,3 +24,6 @@ Instead of sorting the genes by its fitness value, we decided that, to reproduce
  - Build and run the project as a Spring Boot Application
  
 ###### Screenshots
+ Select on Default Values to run the Algorithm for default values of Knapsack and Items for 100 Generations 
+ 
+ ![Home page](https://raw.githubusercontent.com/meghanasrinivasa/INFO6205_333_GeneticKnapSack/sprint4/Report/TestOutput/1.PNG "Home Page")
