@@ -1,5 +1,5 @@
 # GeneticKnapSack - Team 333 
-######Team Members
+###### Team Members
 > ###### Fudi Liu 
 > ###### Harshit Raj 
 > ###### Meghana Srinivasa
