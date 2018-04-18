@@ -14,7 +14,11 @@ The Knapsack Problem (KP) is a combinatorial optimization, which seeks for a bes
 ###### Fitness Function
 The fitness of a gene is evaluated based on the items selected. We first added up all the values of all the items that are selected, then square the sum to give it a larger scale. The equation is f(x)fitness = (∑ ValueselectedItem)^2
 
-Selection Strategy: Instead of sorting the genes by its fitness value, we decided that, to reproduce
-the next generation, a biased selection strategy should be used. This strategy selects a gene from
-the population based on its fitness. Genes with higher fitness values will have higher chance
-being selected. Below is an example explaining the details of the implementation.
+###### Selection Strategy
+Instead of sorting the genes by its fitness value, we decided that, to reproduce the next generation, a biased selection strategy should be used. This strategy selects a gene from the population based on its fitness. Genes with higher fitness values will have higher chance being selected.
+
+###### How to run the Application?
+ Download the project from the github repository and import the maven project on eclipse IDE.
+ - Import > Existing Maven Projects > Select the folder _GeneticKnapSackWebApp_
+ - Build and run the project as a Spring Boot Application
+ 
