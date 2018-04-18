@@ -1,7 +1,4 @@
-# GeneticKnapSack - Team 333
-###### Fudi Liu
-###### Harshit Raj
-###### Meghana Srinivasa
+# GeneticKnapSack - Team 333 ###### Fudi Liu ###### Harshit Raj ###### Meghana Srinivasa
 
 To submission has two projects a 
  -  **Java Application** 
