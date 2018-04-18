@@ -1,5 +1,7 @@
 package com.GeneAlgo.KnapSack.Web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -28,7 +30,7 @@ public class MainController {
     }
 	
 	@RequestMapping(value = "/runAlgorithm", method = RequestMethod.GET)
-	public ModelAndView runDefault() {
+	public ModelAndView runDefault(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		ItemList il = ItemList.getInstance();
 		//AlgoControls ac = new AlgoControls(50000, 10, 5,100);
@@ -45,7 +47,7 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/runAlgorithm", method = RequestMethod.POST)
-	public ModelAndView runCustom(@ModelAttribute AlgoControls cVal, BindingResult result) {
+	public ModelAndView runCustom(@ModelAttribute AlgoControls cVal, BindingResult result,HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		ItemList il = ItemList.getInstance();
 		//AlgoControls ac = new AlgoControls(50000, 10, 5,100);
