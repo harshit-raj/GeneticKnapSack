@@ -9,6 +9,7 @@ To submission has two projects a
  - **Java Application**  - _knapsack_
  - [Link to the Hosted Web Application](https://333geneticknapsack.azureweebsites.net)
  - https://333geneticknapsack.azureweebsites.net
+ 
 ##### How to run the Application?
  Download the project from the github repository and import the maven project on eclipse IDE.
  - Import > Existing Maven Projects > Select the folder _GeneticKnapSackWebApp_
