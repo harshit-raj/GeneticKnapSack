@@ -12,7 +12,7 @@ The Knapsack Problem (KP) is a combinatorial optimization, which seeks for a bes
 
 
 ###### Fitness Function
-The fitness of a gene is evaluated based on the items selected. We first added up all the values of all the items that are selected, then square the sum to give it a larger scale. The equation is f(x)fitness = $(∑ ValueselectedItem)^2$
+The fitness of a gene is evaluated based on the items selected. We first added up all the values of all the items that are selected, then square the sum to give it a larger scale. The equation is f(x)fitness = (∑ ValueselectedItem)^2
 
 Selection Strategy: Instead of sorting the genes by its fitness value, we decided that, to reproduce
 the next generation, a biased selection strategy should be used. This strategy selects a gene from
