@@ -4,8 +4,8 @@
 ###### Meghana Srinivasa
 
 To submission has two projects a 
-- ** Java Application ** 
-- ** Java Web App **
+** -  Java Application ** 
+** -  Java Web App **
 
 Problem Definition
 The Knapsack Problem (KP) is a combinatorial optimization, which seeks for a best solution
