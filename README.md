@@ -22,3 +22,4 @@ Instead of sorting the genes by its fitness value, we decided that, to reproduce
  - Import > Existing Maven Projects > Select the folder _GeneticKnapSackWebApp_
  - Build and run the project as a Spring Boot Application
  
+###### Screenshots
