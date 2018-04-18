@@ -7,7 +7,7 @@
 To submission has two projects a 
  - **Java Web Application** - _GeneticKnapSackWebApp_
  - **Java Application**  - _knapsack_
- - [ Link for the hosted web application on Azure ](https://333geneticknapsack.azureweebsites.net)
+ - [ Link for the hosted web application on Azure ](https://333geneticknapsack.azurewebsites.net)
  
 ###### How to run the Application?
  Download the project from the github repository and import the maven project on eclipse IDE.
