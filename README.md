@@ -1,4 +1,4 @@
-# GeneticKnapSack - Team 333 
+# KnapSack Problem Using Genetic Algorithm - Team 333 
 ###### Team Members
 > ###### Fudi Liu 
 > ###### Harshit Raj 
