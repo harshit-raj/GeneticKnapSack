@@ -27,3 +27,6 @@ Instead of sorting the genes by its fitness value, we decided that, to reproduce
  Select on Default Values to run the Algorithm for default values of Knapsack and Items for 100 Generations 
  
  ![Home page](https://raw.githubusercontent.com/meghanasrinivasa/INFO6205_333_GeneticKnapSack/sprint4/Report/TestOutput/1.PNG "Home Page")
+ 
+ 
+  ![Home page]( https://raw.githubusercontent.com/meghanasrinivasa/INFO6205_333_GeneticKnapSack/sprint4/Report/TestOutput/2.PNG "Default Page")
